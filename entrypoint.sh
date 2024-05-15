@@ -57,6 +57,8 @@ export CELESTIA_CUSTOM=test:$GENESIS
 echo "$CELESTIA_CUSTOM"
 
 celestia bridge init --node.store /home/celestia/bridge
+celestia bridge auth write --node.store /home/celestia/bridge > /home/celestia/shared-data/auth-token
+tail -n1 /home/celestia/shared-data/auth-token > /home/celestia/shared-data/tmp && cp /home/celestia/shared-data/tmp /home/celestia/shared-data/auth-token && rm /home/celestia/shared-data/tmp && rm /home/celestia/shared-data/tmp
 celestia bridge start \
   --node.store $NODE_PATH --gateway \
   --core.ip 127.0.0.1 \

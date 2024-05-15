@@ -10,7 +10,9 @@ RUN apk --no-cache add \
         jq \
         openssl \
     && mkdir /bridge \
-    && chown celestia:celestia /bridge
+    && chown celestia:celestia /bridge \
+    && mkdir -p /home/celestia/shared-data \
+    && chown celestia:celestia /home/celestia/shared-data
 
 USER celestia
 
